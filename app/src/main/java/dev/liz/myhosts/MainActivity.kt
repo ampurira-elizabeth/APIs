@@ -9,7 +9,6 @@ import dev.liz.myhosts.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -28,15 +27,11 @@ class MainActivity : AppCompatActivity() {
             if (response.isSuccessful){
                 var posts=response.body()
                 Toast.makeText(baseContext,"fetched ${posts!!.size} posts",Toast.LENGTH_LONG).show()
-                var adapter=PostAdapter(baseContext,posts)
-                Log.d("Tag",posts.toString())
-                binding.rvPosts.adapter=adapter
-                binding.rvPosts.layoutManager=LinearLayoutManager(baseContext)
-
-            }
+                binding.rvPosts.adapter=PostAdapter(posts)
+                binding.rvPosts.layoutManager=LinearLayoutManager(baseContext) }
             }
             override fun onFailure(call: Call<List<post>>, t: Throwable) {
-                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
+//                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
             }
         })
     }
