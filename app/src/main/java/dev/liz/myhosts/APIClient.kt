@@ -12,8 +12,4 @@ object APIClient {
     fun <T> buildAPIClient(apiInterface: Class<T>):T{
         return  retrofit.create(apiInterface)
     }
-
-
-
-
 }

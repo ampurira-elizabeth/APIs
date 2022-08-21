@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 binding.rvPosts.layoutManager=LinearLayoutManager(baseContext) }
             }
             override fun onFailure(call: Call<List<post>>, t: Throwable) {
-//                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
             }
         })
     }
